@@ -1,0 +1,30 @@
+.plan{
+	margin-top: 20px;
+	background-color: #D4D4D4;
+	height: 200px;
+}
+
+.schedule-2{
+	display: none;
+}
+
+.contain{
+	padding-top: 50px;
+}
+
+.page{
+	margin-top: 5px;
+	height: 40px;
+	background-color: #D4D4D4;
+	margin-left: 20px;
+	padding-top: 10px;
+}
+
+.sub-title{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+h2{
+	font-size: 23px;
+}

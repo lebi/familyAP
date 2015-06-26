@@ -1,0 +1,90 @@
+.row{
+	display: block;
+}
+.page{
+	display: block;
+	height: 120px;
+	background-color: #D4D4D4;
+	padding-top: 50px;
+	margin-top: 30px;
+	margin-bottom: 25px;
+	margin-left: 85px;
+}
+
+.schedule{
+	margin-top: 30px;
+	margin-bottom: 25px;
+	padding-top: 70px;
+
+}
+
+.schedule-user{
+	margin-top: 60px;
+	margin-bottom: 25px;
+	padding-top: 50px;
+	background-color: #D4D4D4;
+	height: 150px;
+	width: 150px;
+}
+
+.plan{
+	margin-top:15px;
+	margin-bottom: 10px;
+	height: 130px;
+	/*background-color: #D4D4D4;*/
+}
+
+.contain{
+	/*padding-top: 100px;
+	padding-bottom: 100px;*/
+
+}
+
+h1{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.navbar {
+	background-color: #e4e6e5;
+	background-color: rgba( 228, 230, 229, .85 );
+	border-bottom: 0 none;
+	font-size: 12px;
+	transition: .25s all linear;
+}
+
+.navbar.inv {
+	background-color: rgba( 0, 0, 0, 0.5 );
+	border-bottom: 1px solid #bfbfbf;
+}
+
+.navbar .nav a {
+	color: #5f5f5f;
+	font-family: "Titillium Web", sans-serif;
+	font-weight: 600;
+	transition: all .5 linear;
+}
+
+.navbar.inv a {
+	color: #e4e6e5;
+}
+
+
+.navbar-responsive-collapse {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.nav li {
+	text-align: center;
+	white-space: nowrap;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+	background-color: inherit;
+	outline: none;
+}
+
+
+

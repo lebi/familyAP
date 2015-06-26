@@ -1,0 +1,4 @@
+log at 2015-4-13 14:45:15: insert to db/nat.db change data [] to ['lebi', '100.100.100.1', 'null']
+log at 2015-4-13 14:45:39: delete to db/nat.db change data [['lebi', '100.100.100.1', 'null'], ['lebi', '100.100.100.1', 'null'], ['lebi', '100.100.100.1', 'null'], ['lebi', '100.100.100.1', 'null']] to []
+log at 2015-4-13 14:45:42: delete to db/nat.db change data [] to []
+log at 2015-4-13 14:45:43: delete to db/nat.db change data [] to []

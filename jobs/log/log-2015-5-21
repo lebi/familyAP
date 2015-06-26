@@ -1,0 +1,5 @@
+log at 2015-5-21 23:49:22: insert to /home/lebi/rOSWorkspace/server/jobs/db/online.db change data [] to [u'lebi', 'i686)', '127.0.0.1', 'null']
+log at 2015-5-21 23:51:36: delete to /home/lebi/rOSWorkspace/server/jobs/db/online.db change data [['lebi', 'i686)', '127.0.0.1', 'null']] to []
+log at 2015-5-21 23:51:46: insert to /home/lebi/rOSWorkspace/server/jobs/db/online.db change data [] to [u'lebi', 'i686)', '127.0.0.1', 'null']
+log at 2015-5-21 23:59:56: update to /home/lebi/rOSWorkspace/server/jobs/db/user.db change data [['2', 'hello', 'bebe', -1]] to [['2', 'hello', 'bebe', -1]]
+log at 2015-5-21 23:59:57: update to /home/lebi/rOSWorkspace/server/jobs/db/user.db change data [['3', 'ban', 'bebe', 2]] to [['3', 'ban', 'bebe', 2]]

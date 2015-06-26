@@ -1,0 +1,15 @@
+$(document).ready(function() {
+	$("#collapse a").each(function () {
+		// body...
+		$(this).click(function () {
+			// body...
+			$(this).parent().parent().parent().find("li").removeClass("active");
+			$(this).parent().addClass("active");
+			if (document.body.clientWidth<=751)
+				$("#collapse").collapse('toggle');
+			// console.log(document.body.clientWidth);
+		})
+	})
+
+	$("#s-date").datetimepicker();
+});

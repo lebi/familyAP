@@ -1,0 +1,2 @@
+log at 2015-5-3 2:11:9: delete to /home/lebi/rOSWorkspace/server/jobs/db/online.db change data [['lebi', 'Android', '192.168.10.94', 'null']] to []
+log at 2015-5-3 2:11:10: delete to /home/lebi/rOSWorkspace/server/jobs/db/online.db change data [['lebi', 'Android', '192.168.0.100', 'null']] to []

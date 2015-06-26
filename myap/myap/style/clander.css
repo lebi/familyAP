@@ -1,0 +1,163 @@
+
+#scheduleWrap {
+  width: 100%;
+  background-color: #ebebeb;
+  font-weight: 700;
+  -moz-box-shadow: 0px 4px 0 #343434;
+  -webkit-box-shadow: 0px 4px 0 #343434;
+  box-shadow: 0px 4px 0 #343434;
+}
+#scheduleWrap .clndr-controls {
+  padding: 14px;
+  background-color: #414141;
+  color: white;
+  text-align: center;
+}
+#scheduleWrap .clndr-controls .clndr-previous-button {
+  float: left;
+  text-align: left;
+}
+#scheduleWrap .clndr-controls .clndr-next-button {
+  float: right;
+  text-align: right;
+}
+#scheduleWrap .clndr-controls .clndr-previous-button,
+#scheduleWrap .clndr-controls .clndr-next-button {
+  width: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+
+  -moz-user-select: none;
+  /* Firefox */
+
+  -ms-user-select: none;
+  /* IE10+ */
+
+}
+#scheduleWrap .clndr-controls .clndr-previous-button:hover,
+#scheduleWrap .clndr-controls .clndr-next-button:hover {
+  opacity: 0.5;
+}
+#scheduleWrap .clndr-grid {
+/*  float: left;
+  width: 65%;*/
+  border-right: 2px solid white;
+  padding:0;
+}
+#scheduleWrap .clndr-grid .days-of-the-week {
+  width: 100%;
+  background-color: #3883a3;
+}
+#scheduleWrap .clndr-grid .days-of-the-week .header-day {
+  float: left;
+  width: 14.2857%;
+  padding: 14px;
+  text-align: center;
+  color: white;
+}
+#scheduleWrap .clndr-grid .day {
+  width: 100%;
+  cursor: pointer;
+}
+#scheduleWrap .clndr-grid .days .day:hover{
+  background-color: #CFCFCF;
+  background-image: none;
+}
+#scheduleWrap .clndr-grid .days .day,
+#scheduleWrap .clndr-grid .days .empty {
+  float: left;
+  width: 14.2857%;
+  height: 66px;
+  padding: 24px 0;
+  text-align: center;
+  color: #4f4f4f;
+  background-color: #ebebeb;
+  border-bottom: 2px solid white;
+  /*background-image: url('http://kylestetz.github.io/CLNDR/css/./triangle.svg');*/
+  background-size: cover;
+  background-position: center;
+}
+#scheduleWrap .clndr-grid .days .day.event .day-number,
+#scheduleWrap .clndr-grid .days .empty.event .day-number {
+  padding-bottom: 4px;
+  border-bottom: 2px solid #3883a3;
+}
+#scheduleWrap .clndr-grid .days .day.adjacent-month .day-number,
+#scheduleWrap .clndr-grid .days .empty.adjacent-month .day-number {
+  opacity: 0.3;
+}
+
+#scheduleWrap .clndr-grid .days .event {
+  background-color: #B0E0E6;
+  background-image: none;
+}
+
+#scheduleWrap .clndr-grid .days .today {
+  background-color: white;
+  background-image: none;
+}
+
+#scheduleWrap .clndr-grid .days .chosen {
+  background-color: #CFCFCF;
+  background-image: none;
+}
+
+
+/*#scheduleWrap .event-listing {
+  float: left;
+  width: 35%;
+}*/
+#scheduleWrap .event-listing .event-listing-title {
+  padding: 14px;
+  background-color: #71bbd2;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.event-listing-add{
+  background-color: #8470FF;
+  padding: 14px;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.event-listing-add:hover{
+  background-color: #7D26CD;
+}
+#scheduleWrap .event-listing .event-item {
+  overflow:hidden;
+  float: left;
+  padding: 14px;
+  color: #4f4f4f;
+}
+
+
+#scheduleWrap .event-listing .event-icons {
+  font-size: 25px;
+  padding-top: 13px;
+  padding-left: 6px;
+  padding-bottom: 16px;
+}
+
+#scheduleWrap .event-listing .event-item-location {
+  font-weight: 400;
+}
+
+#scheduleWrap .clndr-controls .month{
+  font-size: 20px;
+}
+.noselect {
+  -webkit-user-select: none;
+  /* Chrome/Safari */
+
+  -moz-user-select: none;
+  /* Firefox */
+
+  -ms-user-select: none;
+  /* IE10+ */
+
+}

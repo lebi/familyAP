@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html id="home" lang="en">
+
+    <head>
+        <script src="/lib/jquery-1.9.1.min.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <style>
+
+            p { padding: 1em; }
+
+            li {
+                border-bottom: 1px solid rgb(189, 189, 189);
+                border-left: 1px solid rgb(189, 189, 189);
+                padding: .5em;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <button id="offer">offerMedia</button>
+        <video id="local" autoplay height="300px" width="400px"></video>
+        <video id="remote" autoplay height="300px" width="400px"></video>
+        <script>
+            $(function () {
+                var s = new WebSocket("ws://" + window.location.host + "/guest/videows");
+
+                s.onopen = function () {
+                    console.log('WebSocket open');
+                };
+
+                s.onmessage = function(data){
+                    data = JSON.parse(data.data)
+                    console.log('msg' ,data.action)
+                    switch ( data.action) {
+                        case 'answer' :
+                            offerer.setRemoteDescription(new RTCSessionDescription(data.answer))
+                            break
+                        case "ans_candidate":
+                            offerer.addIceCandidate(new RTCIceCandidate(data.candidate))
+                            break
+                        case "create":
+                            answererPeer(data.offer , data.stream)
+                            break
+                        case "off_candidate":
+                            answerer.addIceCandidate(new RTCIceCandidate(data.candidate))
+                            break
+
+                    }
+                }
+
+                window.s = s;
+
+            });
+                var mediaConstraints = {
+                    optional: [],
+                    mandatory: {
+                        OfferToReceiveAudio: false,
+                        OfferToReceiveVideo: true
+                    }
+                };
+            </script>
+            <script>
+                var offerer,answerer;
+                var local=document.getElementById('local');
+                var remote = document.getElementById('remote');
+
+                window.RTCPeerConnection = window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+                window.RTCSessionDescription = window.mozRTCSessionDescription || window.RTCSessionDescription;
+                window.RTCIceCandidate = window.mozRTCIceCandidate || window.RTCIceCandidate;
+
+                navigator.getUserMedia = navigator.mozGetUserMedia || navigator.webkitGetUserMedia;
+                window.URL = window.webkitURL || window.URL;
+
+                window.iceServers = {iceServers: [{url: 'stun:23.21.150.121'}]};
+            </script>
+            <script>
+                /* offerer */
+                function offererPeer(video_stream) {
+                    offerer = new RTCPeerConnection(window.iceServers)
+                    offerer.addStream(video_stream)
+                    offerer.onaddstream = function (event) {
+
+                    }
+
+                    offerer.onicecandidate = function (event) {
+                        if (!event || !event.candidate) return;
+                        var json={action : 'off_candidate',candidate :event.candidate};
+                        sendToP2(json);
+                    }
+
+                    offerer.createOffer(function (offer) {
+                        offerer.setLocalDescription(offer)
+                        // console.log('creation');
+                        sendToP2(({action : 'create',offer:offer}));
+                    }, function() {}, mediaConstraints)
+                }
+
+                function answererPeer(offer, video_stream) {
+                    answerer = new RTCPeerConnection(window.iceServers);
+
+                    answerer.onaddstream = function (event) {
+                        remote.src = URL.createObjectURL(event.stream);
+                        remote.play();
+                    };
+
+                    answerer.onicecandidate = function (event) {
+                        if (!event || !event.candidate) return;
+                        sendToP2({'action' : 'ans_candidate','candidate' :event.candidate});
+                        //offerer.addIceCandidate(event.candidate);
+                    };
+
+                    answerer.setRemoteDescription(new RTCSessionDescription(offer));
+                    answerer.createAnswer(function (answer) {
+                        answerer.setLocalDescription(answer);
+                        sendToP2({'action' : 'answer' ,'answer' : answer});
+                        //offerer.setRemoteDescription(answer);
+                    }, function() {}, mediaConstraints);
+                }
+
+            </script>
+            <script>
+                var video_constraints = {
+                    mandatory: {},
+                    optional: []
+                }
+
+                function getUserMedia(callback) {
+                    var n = navigator
+                    n.getMedia = n.webkitGetUserMedia || n.mozGetUserMedia
+                    n.getMedia({
+                        audio: false,
+                        video: video_constraints
+                    }, callback, onerror)
+
+                    function onerror(e) {
+                        alert(JSON.stringify(e, null, '\t'))
+                    }
+                }
+            </script>
+            <script>
+                function sendToP2(data){
+                //    answererWin.postMessage(JSON.stringify(data),window.location)
+                    if(!window.s){
+                        alert("Please connect server.");
+                    }else{
+                        s.send(JSON.stringify(data));
+                    }
+                }
+
+                $('#offer').click(function(){
+                    getUserMedia(function (video_stream) {
+                        offererPeer(video_stream)        
+                        local.src = window.URL.createObjectURL(video_stream);
+                        local.play();
+                    });
+                })
+
+            </script>
+
+    </body>
+
+</html>

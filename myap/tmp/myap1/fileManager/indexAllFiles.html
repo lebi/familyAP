@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/content.css" />
+
+	    <script src="js/modernizr.custom.js"></script>
+	</head>
+
+	<body class="container">
+		<header class="codrops-header">
+			<h1>文件管理</h1>
+			<!-- <p>Inspiration for revealing content by morphing the action element. Examples:</p> -->
+			<nav class="codrops-demos">
+				<a class="current-demo" href="indexAllFiles.html"><h2>所有文件</h2></a>
+				<span>|</span>
+				<a href="indexShare.html"><h2>共享文件</h2></a>
+				<span>|</span>
+				<a href="indexPrivate.html"><h2>私人文件</h2></a>
+			</nav>
+		</header>
+
+		<div class="morph-button morph-button-overlay morph-button-fixed">
+			<button type="button">上传文件</button>
+			<div class="morph-content">
+				<div>
+					<div class="content-style-overlay">
+						<span class="icon icon-close">Close the overlay</span>
+						<h2>文件上传</h2>
+						
+							<!-- <p><input type="file" name="uploadFile" size="15" input enctype="multipart/form-data" /></p> -->
+							<p><input type="text" id="a" readonly="readonly" /></p>
+							<p>
+ 								<a href="javascript:void(0);" class="input">浏 览
+								<input type="file" id="file"></a>
+							</p>
+
+							<p><label>文件名</label><input type="text" /></p>
+
+							<p><label>文件权限</label>
+								<select type="form-control">
+                                    <option>共享</option>
+                                    <option>私人</option>
+                                </select></p>
+
+							<p><button>Submit</button></p>
+					
+						
+					</div>
+				</div>
+			</div>
+		</div><!-- morph-button -->
+
+		<div class="tableDiv">
+			<table class="table table-striped" style="width: 900px;">
+                <tr>
+                    <th>文件名</th>
+                    <th>上传者</th>
+                    <th>上传时间</th>
+                    <th>权限</th>
+                    <th>下载</th>
+                    <th>删除</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>私人</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>私人</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>私人</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>私人</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>lebi</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>lebi</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>lebi</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>lebi</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>私人</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+                <tr>
+                    <td>lebi</td>
+                    <td >23:ee:bc:ef:54:78</td>
+                    <td>lalala</td>
+                    <td>共享</td>
+                    <td><a href="javascript:void(0)">下载</a></td>
+                    <td><a href="javascript:void(0)">删除</a></td>
+                </tr>
+            </table>
+
+		</div>
+
+		<script src="js/classie.js"></script>
+		<script src="js/uiMorphingButton_fixed.js"></script>
+		<script type="text/javascript">
+ 			var input1 = document.getElementById("file");// 获得控件对象
+ 			input1.onchange = inputPath; //当控件对象 input1 有变化时执行函数 inputPath
+ 			function inputPath() {
+  				var input2 = document.getElementById("a"); // 获取 input 对象 input2
+  				input2.value=input1.value;  // 将控件 input1 的值赋给 input2 
+ 			}
+		</script>
+
+		<script>
+			(function() {	
+				var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+				// trick to prevent scrolling when opening/closing button
+				function noScrollFn() {
+					window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+				}
+
+				function noScroll() {
+					window.removeEventListener( 'scroll', scrollHandler );
+					window.addEventListener( 'scroll', noScrollFn );
+				}
+
+				function scrollFn() {
+					window.addEventListener( 'scroll', scrollHandler );
+				}
+
+				function canScroll() {
+					window.removeEventListener( 'scroll', noScrollFn );
+					scrollFn();
+				}
+
+				function scrollHandler() {
+					if( !didScroll ) {
+						didScroll = true;
+						setTimeout( function() { scrollPage(); }, 60 );
+					}
+				};
+
+				function scrollPage() {
+					scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+					didScroll = false;
+				};
+
+				scrollFn();
+				
+				var el = document.querySelector( '.morph-button' );
+				
+				new UIMorphingButton( el, {
+					closeEl : '.icon-close',
+					onBeforeOpen : function() {
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterOpen : function() {
+						// can scroll again
+						canScroll();
+						// add class "noscroll" to body
+						classie.addClass( document.body, 'noscroll' );
+						// add scroll class to main el
+						classie.addClass( el, 'scroll' );
+					},
+					onBeforeClose : function() {
+						// remove class "noscroll" to body
+						classie.removeClass( document.body, 'noscroll' );
+						// remove scroll class from main el
+						classie.removeClass( el, 'scroll' );
+						// don't allow to scroll
+						noScroll();
+					},
+					onAfterClose : function() {
+						// can scroll again
+						canScroll();
+					}
+				} );
+			})();
+		</script>
+	</body>
+</html>
