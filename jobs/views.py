@@ -22,6 +22,7 @@ from model import logmod
 from model import confmod
 from model import eventmod
 from model import filemod
+from model import favoritemod
 from dwebsocket.decorators import accept_websocket
 from dwebsocket.decorators import require_websocket
 
@@ -221,8 +222,7 @@ def wsOnline(request):
 	result={'data':userList,'status':1}
 	return HttpResponse(json.dumps(result),content_type='application/json')
 
-
-
+#=========================================FILE=====================================
 def privatefileList(request):
 	mod=filemod.FileMod()
 	ip=request.META['REMOTE_ADDR']
@@ -324,3 +324,15 @@ def rmFile(request):
 		result={"data":"fail","status":-1}
 		return HttpResponse(json.dumps(result),content_type='application/json')
 
+#====================================FAVORITE====================================
+def favoriteList(request):
+	mod=favoritemod.FavoriteMod()
+	fList=mod.getFavoriteList(request)
+	result={'data':fList,'status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')
+
+def favoriteAdd(request):
+	mod=favoritemod.FavoriteMod()
+	mod.addFavorite(request)
+	result={'data':'success','status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')

@@ -70,6 +70,10 @@ urlpatterns = patterns('',
     url(r'^guest/eventdate/$','jobs.views.eventDate',name='eventdate'),
 
     url(r'^guest/eventlist/$','jobs.views.eventList',name='eventlist'),
+
+    url(r'^guest/eventupdate/$','jobs.views.eventList',name='eventlist'),
+
+    url(r'^guest/eventadd/$','jobs.views.eventList',name='eventlist'),
     #----------------------------------------------video---------------------------------------------------
 
     url(r'^admin/videows$','jobs.views.videoWs'),
@@ -103,4 +107,9 @@ urlpatterns = patterns('',
     url(r'^admin/file/upload/$','jobs.views.uploadFile',name='uploadfile'),
 
     url(r'^admin/file/remove/$','jobs.views.rmFile',name='rmfile'),
+
+    #--------------------------------------------favorite-----------------------------------
+    url(r'^guest/favorite/list$','jobs.views.favoriteList'),
+
+    url(r'^guest/favorite/add$','jobs.views.favoriteAdd'),
     )
