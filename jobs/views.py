@@ -266,17 +266,14 @@ def AllfileList(request):
 def downloadFile(request):
 	priority=str(request.GET.get('priority'))
 	if priority=="private":
-		ip=request.META['REMOTE_ADDR']
-		username=request.session[ip]
+		username=request.GET.get('username')
 		path = settings.FILEPATH+"/private/"+username+"/"
 	else:
 		path = settings.FILEPATH+"/share/"
-	filename=request.GET.get('filename')
-	print filename
+	filename=str(request.GET.get('filename'))
 	filename=urllib.unquote(filename)
 	tmpname=filename
 	filename = path+filename
-	print filename
 	wrapper = FileWrapper(file(filename))  
 	response = HttpResponse(wrapper, content_type='text/plain')
 	response['Content-Disposition'] = 'attachment; filename=%s' %tmpname

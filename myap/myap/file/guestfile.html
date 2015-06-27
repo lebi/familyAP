@@ -121,7 +121,6 @@
             function removeFile(dom) {
                 var trdom=$(dom).parent().parent();
                 var filename=$($(trdom).children().get(0)).text();
-                console.log(filename);
                 filename=encodeURIComponent(filename);
                 var username=$($(trdom).children().get(1)).text();
                 var priority=$($(trdom).children().get(3)).text();
@@ -134,11 +133,12 @@
             function downloadFile(dom) {
                 var trdom=$(dom).parent().parent();
                 var filename=$($(trdom).children().get(0)).text();
-                console.log(filename);
                 filename=encodeURIComponent(filename);
                 var priority=$($(trdom).children().get(3)).text();
-                url=window.location.href+'download?filename='+filename+'&priority='+priority;
-                window.open(url, "_blank");
+                var username=$($(trdom).children().get(1)).text();
+                console.log(filename)
+                url=window.location.href+'download/?filename='+filename+'&priority='+priority+'&username='+username;
+                window.open(encodeURI(url), "_blank");
             }
 
  			var input1 = document.getElementById("file");// 获得控件对象

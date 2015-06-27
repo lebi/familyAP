@@ -92,7 +92,7 @@ urlpatterns = patterns('',
 
     url(r'^guest/file/share$','jobs.views.sharefileList',name='sfilelist'),
 
-    url(r'^guest/file/download/$','jobs.views.downloadFile',name='downloadfile'),
+    url(r'^guest/file/download$','jobs.views.downloadFile',name='downloadfile'),
 
     url(r'^guest/file/upload/$','jobs.views.uploadFile',name='uploadfile'),
 
