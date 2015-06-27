@@ -8,7 +8,7 @@ class EventDao():
 	fm=dbmanager.FileManager()
 	table=settings.JOBPATH+'/db/event.db'
 	# table='../db/event.db'
-	columns=['id','username','date','datetime','title','content']
+	columns=['id','username','date','datetime','content']
 
 	def __init__(self):
 		self.data=[]
@@ -16,7 +16,6 @@ class EventDao():
 	def addEvent(self,event):
 		eventCol=[]
 		maxid=0
-		print self.fm.select(self.table,['id'])
 		for id in self.fm.select(self.table,['id']):
 			if maxid < int(id[0]):
 				maxid=int(id[0])
@@ -39,19 +38,18 @@ class EventDao():
 			returnlist.append(eventmap)
 		return returnlist
 
-	def updateEvent(self,columns,value,conditions=[]):
-		self.fm.update(self.table,columns,value,conditions)
+	def updateEvent(self,eventMap,conditions=[]):
+		updateCol=self.columns
+		valueCol=[]
+		for col in self.columns:
+			if eventMap.has_key(col):
+				valueCol.append(eventMap[col])
+			else:
+				updateCol.remove(col)
+		self.fm.update(self.table,updateCol,valueCol,conditions)
 
 	def createtable(self):
 		self.fm.create(self.table,self.columns)
 
 	def droptable(self):
 		self.fm.drop(self.table)
-
-# if __name__ == '__main__':
-	# dao=EventDao()
-	# event={'username':'lebi','date':'2015-5-23','datetime':'07:00','title':'empty','content':'getup'}
-	# dao.createtable()
-	# dao.addEvent(event)
-	# dao.deleteEvent(2)
-	# print dao.selectEvent()

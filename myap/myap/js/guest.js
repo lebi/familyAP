@@ -1,5 +1,6 @@
 var nowdate;
 var event_action;
+var eventId;
 $(document).ready(function() {
 	$("#collapse a").each(function () {
 		// body...
@@ -39,6 +40,7 @@ function Event(event) {
   this.date=event.date;
   this.datetime=event.datetime;
   this.content=event.content;
+  this.id=event.id;
 }
 
 
@@ -114,12 +116,11 @@ function render_event(eventList){
   $('.event-listing').append(temp({eventList:eventList}));
   
   $("#scheduleWrap .edit-icon").click(function () {
-    console.log('edit');
     updateEvent(this);
   })
 
   $("#scheduleWrap .remove-icon").click(function () {
-    deleteEvent();
+    deleteEvent(this);
   })
 }
 
@@ -133,9 +134,32 @@ function addEvent() {
 function updateEvent(dom){
   var datetime=$(dom).parent().parent().find('.event-item-name').text();
   var content=$(dom).parent().parent().find('.event-item-location').text();
+  eventId=$(dom).parent().attr('eid');
+  console.log(eventId);
 
   $('#s-modal input').val(datetime);
   $('#s-modal textarea').val(content);
   event_action="eventupdate";
   $('#s-modal').modal('show');
+}
+
+function postEvent(){
+  var time=$('#s-modal input[name=time]').val();
+  var content=$('#s-modal textarea').val();
+  content=encodeURIComponent(content);
+  $.post(event_action,{eventId:eventId,date:nowdate,time:time,content:content},function(result) {
+    if (result.status>0) {
+      $('#s-modal').modal('toggle');
+      getEventList(nowdate);
+    };
+  })
+}
+
+function deleteEvent(dom) {
+  var eid=$(dom).parent().attr('eid');
+  $.getJSON("eventdelete",{eventId:eid},function(result){
+    if(result.status>0){
+      getEventList(nowdate);
+    }
+  })
 }

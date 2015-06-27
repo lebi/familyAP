@@ -116,29 +116,29 @@
                         <div class="container-fluid row">
                             <form class="form-horizontal" id="basicset">
                                 <div class="form-group col-lg-offset-3">
-                                    <label class="col-xs-4 col-lg-3 control-label" style="color:white">无线名称</label>
-                                    <div class="col-xs-8 col-lg-7">
+                                    <label class="col-xs-4 col-sm-3 col-lg-3 control-label" style="color:white">无线名称</label>
+                                    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-7">
                                         <input class="form-control" placeholder="输入无线名称" name="ssid">
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-offset-3">
-                                    <label class="col-xs-4 col-lg-3 control-label" style="color:white" >频道</label>
-                                    <div class="col-xs-8 col-lg-7">
+                                    <label class="col-xs-4 col-sm-3 col-lg-3 control-label" style="color:white" >频道</label>
+                                    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-7">
                                         <input class="form-control" placeholder="输入1-11" name="channel">
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-offset-3">
-                                    <label class="col-xs-4 col-lg-3 control-label" style="color:white" >无线接口</label>
-                                    <div class="col-xs-8 col-lg-7">
+                                    <label class="col-xs-4 col-sm-3 col-lg-3 control-label" style="color:white" >无线接口</label>
+                                    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-7">
                                         <input class="form-control" placeholder="输入无线名称" name="interface">
                                         <br/>
                                     </div>
                                 </div>
                         <div class="row">
-                            <div class="col-xs-6 col-lg-3 col-lg-offset-3">
+                            <div class="col-xs-6 col-sm-3 col-sm-offset-3 col-lg-3 col-lg-offset-3">
                                 <button type="button" class="btn btn-default btn-block" onclick="cm.basicres(this)">重置</button>
                             </div>
-                            <div class="col-xs-6 col-lg-3">
+                            <div class="col-xs-6 col-sm-3 col-lg-3">
                                 <button type="button" class="btn btn-primary btn-block" onclick="cm.basicsub(this)">提交</button> 
                             </div>
                             <br/>
@@ -154,9 +154,9 @@
                              <br>
                         </div>                    
                         <form class="form-horizontal" id="secureset">
-                            <div class="form-group col-lg-offset-3">
-                                <label class="col-xs-4 col-lg-3 control-label" style="color:white">加密方式</label>
-                                <div class="col-xs-8 col-lg-7">
+                            <div class="form-group col-sm-offset-2 col-md-offset-2 col-lg-offset-3">
+                                <label class="col-xs-4 col-sm-3 col-lg-3 control-label" style="color:white">加密方式</label>
+                                <div class="col-xs-8  col-sm-6 col-md-6 col-lg-7">
                                     <select class="form-control" name="wpa">
                                         <option>wpa1</option>
                                         <option>wpa2</option>
@@ -166,23 +166,23 @@
                                 </div>
                             </div>     
                             <div class="form-group col-lg-offset-3">
-                                <label class="col-xs-4 col-lg-3 control-label" style="color:white">修改密码</label>
-                                <div class="col-xs-8 col-lg-7">
+                                <label class="col-xs-4 col-sm-3 col-lg-3 control-label" style="color:white">修改密码</label>
+                                <div class="col-xs-8 col-sm-6 col-md-6 col-lg-7">
                                     <input class="form-control" placeholder="输入新密码" type="password" name="password">
                                 </div>
                             </div>
                             <div class="form-group col-lg-offset-3">
-                                <label class="col-xs-4 col-lg-3 control-label" style="color:white">确认密码</label>
-                                <div class="col-xs-8 col-lg-7">
+                                <label class="col-xs-4 col-sm-3 col-lg-3 control-label" style="color:white">确认密码</label>
+                                <div class="col-xs-8 col-sm-6 col-md-6 col-lg-7">
                                     <input class="form-control" placeholder="输入新密码" type="password" name="confirm">
                                     <br/>
                                 </div>
                             </div>
                         <div class="row">
-                            <div class="col-xs-6 col-lg-3 col-lg-offset-3">
+                            <div class="col-xs-6 col-sm-3 col-sm-offset-3 col-lg-3 col-lg-offset-3">
                                 <button type="button" class="btn btn-default btn-block" onclick="cm.securesub(this)">重置</button>
                             </div>
-                            <div class="col-xs-6 col-lg-3">
+                            <div class="col-xs-6 col-sm-3 col-lg-3">
                                 <button type="button" class="btn btn-primary btn-block" onclick="cm.securesub(this)">提交</button> 
                             </div>
                             <br/>
@@ -217,7 +217,7 @@
                 <br>
                 <br>
                 <br>
-                <div class="col-xs-8 col-lg-2">
+                <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-lg-2">
                     <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
                     <button type="button" style="background: url(/img/s1.png) no-repeat" onfocus="this.blur()" onclick="settingClear(this)" >
                         <h2>个人设置</h2>
@@ -242,7 +242,7 @@
                     </div><!-- morph-button -->
                 </div>
 
-                <div class="col-xs-8 col-lg-2 col-lg-offset-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-offset-2">
                     <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
                     <button type="button" style="background: url(/img/s2.png) no-repeat" onfocus="this.blur()" onclick="settingClear(this)"><h2>添加用户</h2></button>
                     <div class="morph-content">
@@ -265,7 +265,7 @@
                     </div><!-- morph-button -->
                 </div>
 
-                <div class="col-xs-8 col-lg-2 col-lg-offset-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-offset-2">
                     <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
                     <button type="button" style="background: url(/img/s3.png) no-repeat" onfocus="this.blur()"><h2>用户设置</h2></button>
                     <div class="morph-content">
@@ -274,7 +274,7 @@
                             <span class="icon icon-close">Close the dialog</span>
                             <h4>用户设置</h4>
                             <form>
-                                <p><label>选择用户 <span type="title"></span>共享文件可见</label>
+                                <p><label>选择用户<span type="title"></span>共享文件可见</label>
                                     <select type="form-control" name="username" onchange="ajaxSettingDetail()">
                                     </select><span type="content" ></span>
                                     <select type="form-control" name="sfileauth">
@@ -307,7 +307,7 @@
                 <br>
                 <br>
                 <br>
-                <div class="col-xs-12 col-lg-3 col-lg-offset-2">
+                <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-lg-3 col-lg-offset-2">
                     <a href="file">
                         <button type="button" style="background: url(../img/file1.png) no-repeat">
                             <h4 class="text-center sub-title" style="font-size: 28px; padding-top: 220px">所有文件</h4>
@@ -315,7 +315,7 @@
                     </a>    
                 </div>
 
-                <div class="col-xs-12 col-lg-2">
+                <div class="col-xs-12 col-sm-3 col-lg-2">
                     <a href="file">
                         <button type="button" style="background: url(../img/file2.png) no-repeat">
                             <h4 class="text-center sub-title" style="font-size: 28px; padding-top: 220px">共享文件</h4>
@@ -323,7 +323,7 @@
                     </a>
                 </div>
 
-                <div class="col-xs-12   col-lg-3">
+                <div class="col-xs-12 col-sm-3 col-lg-3">
                     <a href="file">
                         <button type="button" style="background: url(../img/file3.png) no-repeat">
                             <h4 class="text-center sub-title" style="font-size: 28px; padding-top: 220px">私人文件</h4>
@@ -357,11 +357,11 @@
                     </ul>
                 </div>
 
-                <div class="col-xs-12 col-lg-6 ">
+                <div class="col-xs-12 col-sm-8 col-lg-6 ">
                     <video id="remote" poster="../img/videoPoster.jpg" controls="controls">
                     </video>
                 </div>                
-                <div class="col-xs-12 col-lg-2">
+                <div class="col-xs-12 col-sm-4 col-lg-2">
                     <video id="local" poster="../img/videoPoster.jpg" controls="controls">
                     </video>
                 </div>

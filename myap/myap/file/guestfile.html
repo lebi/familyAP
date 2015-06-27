@@ -16,11 +16,9 @@
 			<h1>文件管理</h1>
 			<!-- <p>Inspiration for revealing content by morphing the action element. Examples:</p> -->
 			<nav class="codrops-demos">
-				<a class="current-demo type-choose" href="javascript:void(0);"><h2>所有文件</h2></a>
-				<span>|</span>
 				<a class="type-choose" href="javascript:void(0);"><h2>共享文件</h2></a>
 				<span>|</span>
-				<a class="type-choose" href="javascript:void(0);"><h2>私人文件</h2></a>
+				<a class="current-demo type-choose" href="javascript:void(0);"><h2>私人文件</h2></a>
 			</nav>
 		</header>
 
@@ -82,7 +80,7 @@
         <script src="/lib/underscore-min.js"></script>
 		<script type="text/javascript">
             $(function(){
-                ajaxFile('all');
+                ajaxFile('private');
                 $(".type-choose").click(function(){
                     typeChoose(this);
                 });
@@ -136,8 +134,8 @@
             function downloadFile(dom) {
                 var trdom=$(dom).parent().parent();
                 var filename=$($(trdom).children().get(0)).text();
-                filename=encodeURIComponent(filename);
                 console.log(filename);
+                filename=encodeURIComponent(filename);
                 var priority=$($(trdom).children().get(3)).text();
                 url=window.location.href+'download?filename='+filename+'&priority='+priority;
                 window.open(url, "_blank");

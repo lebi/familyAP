@@ -15,7 +15,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/file/$','jobs.views.fileView',name='fileView'),
 
-    url(r'^guest/file/$','jobs.views.fileView',name='fileView'),
+    url(r'^guest/file/$','jobs.views.guestFileView',name='fileView'),
 
 	url(r'^ajax/$','jobs.views.ajax',name='ajax'),
 
@@ -71,9 +71,11 @@ urlpatterns = patterns('',
 
     url(r'^guest/eventlist/$','jobs.views.eventList',name='eventlist'),
 
-    url(r'^guest/eventupdate/$','jobs.views.eventList',name='eventlist'),
+    url(r'^guest/eventupdate$','jobs.views.eventUpdate',name='eventlist'),
 
-    url(r'^guest/eventadd/$','jobs.views.eventList',name='eventlist'),
+    url(r'^guest/eventadd$','jobs.views.eventAdd',name='eventlist'),
+
+    url(r'^guest/eventdelete$','jobs.views.eventDelete',name='eventlist'),
     #----------------------------------------------video---------------------------------------------------
 
     url(r'^admin/videows$','jobs.views.videoWs'),

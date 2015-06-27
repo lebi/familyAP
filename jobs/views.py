@@ -45,6 +45,9 @@ def rtcView(request):
 def fileView(request):
     return render_to_response('file/file.html')
 
+def guestFileView(request):
+    return render_to_response('file/guestfile.html')
+
 def login(request):
 	mod=logmod.LogMod()
 	check=mod.checkLogin(request)
@@ -166,7 +169,7 @@ def basicSet(request):
 def secureSet(request):
 	result={'data':'success','status':1}
 	return HttpResponse(json.dumps(result),content_type='application/json')
-
+#=======================================================event======================================
 def eventDate(request):
 	mod=eventmod.EventMod()
 	datelist=mod.getActiveDate(request)
@@ -177,6 +180,24 @@ def eventList(request):
 	mod=eventmod.EventMod()
 	eventlist=mod.getEventList(request)
 	result={'data':eventlist,'status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')
+
+def eventAdd(request):
+	mod=eventmod.EventMod()
+	mod.addEvent(request)
+	result={'data':'success','status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')
+
+def eventUpdate(request):
+	mod=eventmod.EventMod()
+	mod.updateEvent(request)
+	result={'data':'success','status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')
+
+def eventDelete(request):
+	mod=eventmod.EventMod()
+	mod.deleteEvent(request)
+	result={'data':'success','status':1}
 	return HttpResponse(json.dumps(result),content_type='application/json')
 
 @accept_websocket
@@ -227,7 +248,7 @@ def privatefileList(request):
 	mod=filemod.FileMod()
 	ip=request.META['REMOTE_ADDR']
 	username=request.session[ip]
-	result=mod.getFileList(['username='+username,'priority=private'])
+	result=mod.getFileList(['username='+username])
 	result={"data":result,"status":1}
 	return HttpResponse(json.dumps(result),content_type='application/json')
 
@@ -250,10 +271,12 @@ def downloadFile(request):
 		path = settings.FILEPATH+"/private/"+username+"/"
 	else:
 		path = settings.FILEPATH+"/share/"
-	filename=str(request.GET.get('filename'))
+	filename=request.GET.get('filename')
+	print filename
+	filename=urllib.unquote(filename)
 	tmpname=filename
-	filename=urllib.quote(filename)
 	filename = path+filename
+	print filename
 	wrapper = FileWrapper(file(filename))  
 	response = HttpResponse(wrapper, content_type='text/plain')
 	response['Content-Disposition'] = 'attachment; filename=%s' %tmpname
