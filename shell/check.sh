@@ -1,8 +1,8 @@
 #!/bin/bash
-
+echo 'check online begin'
 root=`sed '/^#/d' /etc/myap.conf | grep '^root' | awk -F '=' '{print $2}'`
 online=`find $root -name online.db`
-
+cd $root
 iplist=`cat $online | awk '{print $3}' | sed -e '1d'`
 if [ -f "ping" ]; then
 	rm ping
@@ -20,3 +20,4 @@ done
 cp tmp $online
 rm tmp
 rm ping
+echo 'check online end'

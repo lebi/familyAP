@@ -130,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_crontab',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -166,3 +167,7 @@ LOGGING = {
         },
     }
 }
+
+CRONJOBS = [
+('*/1 * * * *', 'django_crontab.crontest.testSchedule', '>> /tmp/crontab.log 2>&1')
+]
