@@ -66,7 +66,3 @@ class UserMod(object):
 				detail[i]=''
 			detailmap[columns[i]]=detail[i]
 		return detailmap
-
-# if __name__ == '__main__':
-# 	mod=UserMod()
-# 	print mod.getUserList()

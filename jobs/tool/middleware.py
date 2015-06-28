@@ -8,6 +8,7 @@ from server import settings
 import sys
 sys.path.append(settings.JOBPATH)
 from dao import onlinedao
+from dao import userdao
 
 class AuthMiddleware(object):
 	onlinedao=onlinedao.onlinedao()
@@ -17,19 +18,20 @@ class AuthMiddleware(object):
 
 	def process_request(self,request):
 		ip=request.META.get('REMOTE_ADDR')
-		# print request.session
 		if re.match(r'^/admin/*',request.path) or re.match(r'^/guest/*',request.path):
-			print request.session.has_key(ip)
 			if request.session.has_key(ip) and \
 				len(self.onlinedao.selectuser(['username='+request.session[ip],'ip='+ip]))>0 :
-				print "permission"
+				if re.match(r'^/admin/*',request.path):
+					dao=userdao.userdao()
+					rank=dao.selectuser(['username='+request.session[ip]])[0][3]
+					if int(rank)==2 or int(rank)==-1:
+						return HttpResponseRedirect('/guest')
 				pass
 			else:
-				if re.match(r'^/admin/$',request.path) or re.match(r'^/guest/$',request.path):
+				if re.match(r'^/admin/$',request.path) or re.match(r'^/guest/$',request.path) or re.match(r'^/.*/file/$',request.path):
 					print "redirect"
 					return HttpResponseRedirect('/')
 				else:
-					# return HttpResponse(json.dumps(result),content_type='application/json')
 					print "forbidden"
 					return HttpResponseForbidden('not login');
 		else:

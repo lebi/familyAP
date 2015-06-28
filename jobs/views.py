@@ -48,19 +48,28 @@ def fileView(request):
 def guestFileView(request):
     return render_to_response('file/guestfile.html')
 
+def errorView(request):
+    return render_to_response('error/error.html')
+
+def logout(request):
+	mod=logmod.LogMod()
+	ip=request.META['REMOTE_ADDR']
+	username=request.session[ip]
+	mod.logout(username,ip)
+	if request.session.has_key(ip):
+		del request.session[ip]
+	return HttpResponseRedirect('/')
+
 def login(request):
 	mod=logmod.LogMod()
 	check=mod.checkLogin(request)
 	topage='login.html'
 	if check==1:
-		print check
 		topage='admin/admin.html'
 		return HttpResponseRedirect('/admin')
 	elif check!=0:
 		topage='guest/guest,html'
 		return HttpResponseRedirect('/guest')
-	# return render_to_response('index.html',{},context_instance=RequestContext(request))
-	# fp=open("{0}/login.html".format(settings.PATH))
 	result={'status':1}
 	return render_to_response(topage,result)
 
@@ -112,6 +121,17 @@ def addUser(request):
 	result={'data':'success','status':1}
 	return HttpResponse(json.dumps(result),content_type='application/json')
 
+def kickUser(request):
+	mod=logmod.LogMod()
+	username=request.GET.get('username')
+	ip=request.GET.get('ip')
+	mod.logout(username,ip)
+	if request.session.has_key(ip):
+		del request.session[ip]
+	result={'data':'success','status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')
+	
+
 def modifyUser(request):
 	mod=usermod.UserMod()
 	username=str(request.POST.get('username'))
@@ -144,12 +164,6 @@ def settingDetail(request):
 	result={'data':detail,'status':1}
 	return HttpResponse(json.dumps(result),content_type='application/json')
 
-def kickUser(request):
-	mod=logmod.LogMod()
-	mod.logout(request)
-	result={'data':'success','status':1}
-	return HttpResponse(json.dumps(result),content_type='application/json')
-	
 def updateSpeed(request):
 	mod=onlinemod.OnlineMod()
 	mod.updateSpeed(request)
@@ -208,7 +222,6 @@ def videoWs(request):
 			wsipList.append(request.META['REMOTE_ADDR'])
 			for message in request.websocket:
 				wsmessage=json.loads(message)
-				print wsmessage
 				wsmessage['ip']=request.META['REMOTE_ADDR']
 				if wsmessage['target']=='0.0.0.0':
 					mod=onlinemod.OnlineMod()
@@ -219,7 +232,6 @@ def videoWs(request):
 					wsmessage['mac']=mac
 					for client in clients:
 						if client!=request.websocket:
-							print json.dumps(wsmessage)
 							client.send(json.dumps(wsmessage))
 							# client.send(wsmessage)
 				else:
@@ -288,14 +300,12 @@ def handle_uploaded_file(request):
 		ip=request.META['REMOTE_ADDR']
 		username=request.session[ip]
 		priority=str(request.POST.get('priority'))
-		print priority
 		if priority=="private":
 			path = settings.FILEPATH+"/private/"+username+"/"
 		else:
 			path = settings.FILEPATH+"/share/"
 		if not os.path.exists(path):
 			os.makedirs(path)
-		print f.name
 		filename=f.name.encode('utf-8')
 		filename = path + filename
 		destination = open(filename, 'wb+')

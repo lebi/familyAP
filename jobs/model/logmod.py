@@ -6,6 +6,7 @@ sys.path.append(settings.JOBPATH)
 from dao import userdao
 from dao import onlinedao
 from shell import nat
+from model import usermod
 
 class LogMod(object):
 	userdao=userdao.userdao()
@@ -29,6 +30,14 @@ class LogMod(object):
 				NAT=nat.NAT()
 				NAT.allowUser(ip)
 			userjson={'username':username,'rank':user[0][3]}
+
+			mod=usermod.UserMod()
+			limit=mod.selectSettingDetail(username)['limit']
+			if limit != 'null':
+				webList=limit.split(';')
+				NAT=nat.NAT()
+				for web in webList:
+					NAT.webBan(ip,web)
 		return userjson
 
 	def checkLogin(self,request):
@@ -39,14 +48,17 @@ class LogMod(object):
 				return int(self.userdao.selectuser(['username='+username])[0][3])
 		return 0
 
-	def logout(self,request):
-		username=request.GET.get('username')
-		ip=request.GET.get('ip')
+	def logout(self,username,ip):
 		condition=['username='+username,'ip='+ip]
 		try:
 			NAT=nat.NAT()
-			NAT.banUser(ip)
+			NAT.banUser(ip)			
+			mod=usermod.UserMod()
+			limit=mod.selectSettingDetail(username)['limit']
+			if limit != 'null':
+				webList=limit.split(';')
+				NAT=nat.NAT()
+				for web in webList:
+					NAT.webAllow(ip,web)
 		finally:
-			self.onlinedao.deleteuser(condition)	
-			if request.session.has_key(ip):
-				del request.session[ip]
+			self.onlinedao.deleteuser(condition)

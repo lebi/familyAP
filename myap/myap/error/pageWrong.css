@@ -1,0 +1,24 @@
+#bg {
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:-999;
+}
+
+#backToHome {
+	position:absolute; 
+	top:0px; 
+	right:0px;
+	color: #FFF;
+	text-decoration: none;
+	outline: none;
+}
+
+#backToHome h3 {
+	font-size: 15px;
+	padding-top: 0px;
+}
+
+#backToHome:hover, #backToHome:focus {
+	color: #fbe601;
+}

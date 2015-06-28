@@ -39,7 +39,7 @@ function Event(event) {
   this.title=event.title;
   this.date=event.date;
   this.datetime=event.datetime;
-  this.content=event.content;
+  this.content=decodeURIComponent(event.content);
   this.id=event.id;
 }
 

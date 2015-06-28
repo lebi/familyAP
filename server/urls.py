@@ -13,11 +13,13 @@ urlpatterns = patterns('',
     url(r'^guest/$','jobs.views.guest',name='guest'),
     url(r'^$','jobs.views.login',name='login'),
 
+    url(r'^/$','jobs.views.login',name='login'),
+
     url(r'^admin/file/$','jobs.views.fileView',name='fileView'),
 
     url(r'^guest/file/$','jobs.views.guestFileView',name='fileView'),
 
-	url(r'^ajax/$','jobs.views.ajax',name='ajax'),
+    url(r'^error/$','jobs.views.errorView',name='ajax'),
 
     url(r'^css/(?P<path>.*)$', 'django.views.static.serve',
     	{'document_root':'{0}/css'.format(settings.PATH)}),
@@ -53,6 +55,10 @@ urlpatterns = patterns('',
     url(r'^admin/user/settingdetail$','jobs.views.settingDetail',name='settingdetail'),
 
     url(r'^admin/user/kick$','jobs.views.kickUser',name='kickuser'),
+
+    url(r'^admin/user/logout$','jobs.views.logout',name='kickuser'),
+
+    url(r'^guest/user/logout$','jobs.views.logout',name='kickuser'),
 
     url(r'^admin/user/speed$','jobs.views.updateSpeed',name='kickuser'),
 
@@ -92,7 +98,7 @@ urlpatterns = patterns('',
 
     url(r'^guest/file/share$','jobs.views.sharefileList',name='sfilelist'),
 
-    url(r'^guest/file/download$','jobs.views.downloadFile',name='downloadfile'),
+    url(r'^guest/file/download/$','jobs.views.downloadFile',name='downloadfile'),
 
     url(r'^guest/file/upload/$','jobs.views.uploadFile',name='uploadfile'),
 
