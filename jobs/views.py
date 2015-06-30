@@ -23,6 +23,7 @@ from model import confmod
 from model import eventmod
 from model import filemod
 from model import favoritemod
+from model import countmod
 from dwebsocket.decorators import accept_websocket
 from dwebsocket.decorators import require_websocket
 
@@ -306,7 +307,8 @@ def handle_uploaded_file(request):
 			path = settings.FILEPATH+"/share/"
 		if not os.path.exists(path):
 			os.makedirs(path)
-		filename=f.name.encode('utf-8')
+		print f.name
+		filename=str(f.name.encode('utf-8'))
 		filename = path + filename
 		destination = open(filename, 'wb+')
 		for chunk in f.chunks():
@@ -365,4 +367,12 @@ def favoriteAdd(request):
 	mod=favoritemod.FavoriteMod()
 	mod.addFavorite(request)
 	result={'data':'success','status':1}
+	return HttpResponse(json.dumps(result),content_type='application/json')
+
+def countRest(request):
+	mod=countmod.CountMod()
+	ip=request.META['REMOTE_ADDR']
+	username=request.session[ip]
+	countMap=mod.getUserCount(username)
+	result={'data':countMap,'status':1}
 	return HttpResponse(json.dumps(result),content_type='application/json')

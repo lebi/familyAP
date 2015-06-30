@@ -282,8 +282,36 @@
                                         <option value="no">否</option>
                                     </select></p>
 
-                                <p><label>周末上网时段设置</label><input type="textTime" name="wendstarttime" onblur="checkTimeFormat(this)"/>----<input type="textTime" name="wendstoptime" onblur="checkTimeFormat(this)"/></p>
-                                <p><label>工作日上网时段设置</label><input type="textTime" name="wdaystarttime" onblur="checkTimeFormat(this)"/>----<input type="textTime" name="wdaystoptime" onblur="checkTimeFormat(this)"/></p>
+                                <p><label>周末上网时间</label><!-- <input type="textTime" name="wendstarttime" onblur="checkTimeFormat(this)"/>----<input type="textTime" name="wendstoptime" onblur="checkTimeFormat(this)"/> -->
+                                    <select type="form-control" name="wendhour">
+                                        <option value='null'>不限</option>
+                                        <option value='0'>0小时</option>
+                                        <option value='1'>1小时</option>
+                                        <option value='2'>2小时</option>
+                                        <option value='3'>3小时</option>
+                                        <option value='4'>4小时</option>
+                                        <option value='5'>5小时</option>
+                                    </select><span type="content" ></span>
+                                    <select type="form-control" name="wendmin">
+                                        <option value='0'>0分钟</option>
+                                        <option value='30'>30分钟</option>
+                                    </select>
+                                </p>
+                                <p><label>工作日上网时间</label><!-- <input type="textTime" name="wdaystarttime" onblur="checkTimeFormat(this)"/>----<input type="textTime" name="wdaystoptime" onblur="checkTimeFormat(this)"/> -->
+                                    <select type="form-control" name="wdayhour">
+                                        <option value='null'>不限</option>
+                                        <option value='0'>0小时</option>
+                                        <option value='1'>1小时</option>
+                                        <option value='2'>2小时</option>
+                                        <option value='3'>3小时</option>
+                                        <option value='4'>4小时</option>
+                                        <option value='5'>5小时</option>
+                                    </select><span type="content" ></span>
+                                    <select type="form-control" name="wdaymin">
+                                        <option value='0'>0分钟</option>
+                                        <option value='30'>30分钟</option>
+                                    </select>
+                                </p>
                                 <p><label>网页限制</label><textarea onfocus="if(value=='以分号分隔'){value=''}" onblur="if (value ==''){value='以分号分隔'}">以分号分隔</textarea></p>
                                 <p><button type="button" onclick="settingUserDetail(this)">Submit</button></p>
                             </form>

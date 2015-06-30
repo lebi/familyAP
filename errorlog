@@ -1,27 +1,5 @@
-[sudo] password for lebi: iptables: No chain/target/match by that name.
 iptables: No chain/target/match by that name.
-[sudo] password for lebi: Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
 Bad argument `DNAT'
 Try `iptables -h' or 'iptables --help' for more information.
 Bad argument `DNAT'
 Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-[sudo] password for lebi: Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-Bad argument `DNAT'
-Try `iptables -h' or 'iptables --help' for more information.
-iptables: No chain/target/match by that name.
-iptables: No chain/target/match by that name.
-[sudo] password for lebi: [sudo] password for lebi: 

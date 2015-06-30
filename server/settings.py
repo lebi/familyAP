@@ -1,9 +1,23 @@
 import os
 #from django.views.generic import TemplateView
 # Django settings for server project.
-JOBPATH=os.path.abspath('.')+'/jobs'
+ROOTPATH=''
+conf = '/etc/myap.conf'
+file = open(conf)
+line=file.readline()
+while line:
+    line=file.readline()
+    if line.find('root') >= 0:
+        break
+if line:
+    path=line.split('=')[1]
+    if path.find('\n')>=0:
+        path=path[:len(path)-1]
+        ROOTPATH=path
 
-PATH=os.path.abspath('.')+'/myap/myap'
+JOBPATH=ROOTPATH+'/jobs'
+
+PATH=ROOTPATH+'/myap/myap'
 
 FILEPATH=JOBPATH+'/filemenu'
 DEBUG = True
@@ -169,5 +183,6 @@ LOGGING = {
 }
 
 CRONJOBS = [
-('*/1 * * * *', 'django_crontab.crontest.testSchedule', '>> /tmp/crontab.log 2>&1')
+('*/1 * * * *', 'django_crontab.crontest.checkOnline', '>> /tmp/crontab.log 2>&1'),
+('1 0 * * *', 'django_crontab.crontest.resetCount', '>> /tmp/crontab.log 2>&1'),
 ]

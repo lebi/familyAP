@@ -15,7 +15,6 @@ class FileMod(object):
 
 	def getFileList(self,conditions=[]):
 		files=self.filedao.selectfile(conditions)
-		print files
 		filejsonlist=[]
 		for f in files:
 			filepath={}

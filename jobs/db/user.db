@@ -1,4 +1,5 @@
 id	username	password	rank
 1	lebi	123456	1
-3	agent	agent	2
-3	haha	aa	-1
+3	haha	aa	2
+3	ab	a	2
+3	ban	a	-1

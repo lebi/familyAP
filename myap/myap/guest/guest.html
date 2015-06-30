@@ -32,7 +32,8 @@
         			<span class="icon-bar"></span>
         			<span class="icon-bar"></span>
       			</button>
-      			<a class="navbar-brand" href="/admin" style="color: grey; font-weight:600">管理页面</a>
+      			<a class="navbar-brand" href="/admin" style="color: white; font-weight:600">管理页面</a>
+                <span class="navbar-brand countdown" style="color: white;">上网时间:</span>
     		</div>
 
             <div class="collapse navbar-collapse" id="collapse">       
@@ -75,7 +76,6 @@
             </div><!-- /container -->
         </div><!-- /w -->
 
-        <!-- ========== File SECTION ========== -->
         <!-- ========== File SECTION ========== -->
         <div id="fileWrap">
             <div id="file" class="container-fluid">
@@ -122,7 +122,7 @@
                     <div class="clndr-next-button">&rsaquo;</div>
                     <div class="month"><%= month %></div>
                 </div>
-                <div class="clndr-grid col-lg-8 col-md-8" >
+                <div class="clndr-grid col-lg-8 col-sm-9" >
                     <div class="days-of-the-week clearfix">
                         <% _.each(daysOfTheWeek, function(day) { %>
                             <div class="header-day"><%= day %></div>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="event-listing col-lg-offset-8 col-md-offset-8">
+                <div class="event-listing col-lg-offset-8 col-sm-offset-9">
                     <div class="event-listing-title">SCHEDULE OF THE DAY</div>
                     <div class="event-listing-add" data-toggle="modal">Click to Add A Event</div>
                 </div>
@@ -143,7 +143,7 @@
         </div>
         <script type="text/template" id="template-event">
             <% _.each(eventList,function(item){ %>
-                <div class="col-lg-12 row event-row" >
+                <div class="col-lg-12 col-sm-12 row event-row" >
                     <div class="col-lg-9 event-item">
                         <div class="event-item-name"><%= item.datetime %></div>
                         <div class="event-item-location"><%= item.content %></div>
@@ -223,7 +223,7 @@
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-sm-2 control-label">Time</label>
                                 <div class="col-sm-10" id="s-date">
-                                    <input type="text" class="form-control" placeholder="hh:mm" data-date-format="hh:mm" name="time">
+                                    <input type="text" class="form-control" placeholder="HH:mm" data-date-format="hh:mm" name="time">
                                 </div>  
                             </div>
                             <div class="form-group">

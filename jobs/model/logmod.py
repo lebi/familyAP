@@ -52,7 +52,7 @@ class LogMod(object):
 		condition=['username='+username,'ip='+ip]
 		try:
 			NAT=nat.NAT()
-			NAT.banUser(ip)			
+			NAT.banUser(ip)
 			mod=usermod.UserMod()
 			limit=mod.selectSettingDetail(username)['limit']
 			if limit != 'null':

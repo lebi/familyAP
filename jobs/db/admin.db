@@ -1,4 +1,5 @@
 username	sfileauth	wdaystarttime	wdaystoptime	wendstarttime	wendstoptime	limit
-agent	yes	null	null	null	null	null
-lebi	yes	null	null	null	null	www.baidu.com;www.taobao.com
-haha	null	null	null	null	null	null
+ab	null	null	null	null	null	null
+ban	yes	0	30	2	0	null
+haha	yes	3	0	2	0	null
+lebi	yes	null	30	null	30	www.baidu.com;www.taobao.com

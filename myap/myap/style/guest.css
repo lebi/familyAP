@@ -2,6 +2,11 @@
 .active a{
 	color: #000000;
 }
+.countdown{
+	padding-top: 17px;
+	font-size:10px;
+}
+
 #webwrap {
 	background: url(../img/guest-bg1.jpg) no-repeat center top;
 	margin-top: 0px;

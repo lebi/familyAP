@@ -6,6 +6,7 @@ from server import settings
 import sys
 sys.path.append(settings.JOBPATH)
 from dao import userdao
+import countmod
 
 class UserMod(object):
 	userdao=userdao.userdao()
@@ -48,6 +49,8 @@ class UserMod(object):
 				value[i]='null'
 		columns=['sfileauth','wdaystarttime','wdaystoptime','wendstarttime','wendstoptime','limit']
 		self.userdao.manageuser(columns,value,conditions)
+		mod=countmod.CountMod()
+		mod.resetCount(username)
 
 	def addUsertoadmin(self,username):
 		settingList=self.userdao.selectadminuser(['username='+username])
@@ -55,6 +58,8 @@ class UserMod(object):
 		# columns=['username','sfileauth','wdaystarttime','wdaystoptime','wendstarttime','wendstoptime','limit']
 			columns=['username']
 			self.userdao.addusertoadmin(columns,[username])
+		mod=countmod.CountMod()
+		mod.addCount(username)
 
 	def selectSettingDetail(self,username):
 		detail=self.userdao.selectadminuser(['username='+username])[0]
@@ -66,3 +71,6 @@ class UserMod(object):
 				detail[i]=''
 			detailmap[columns[i]]=detail[i]
 		return detailmap
+
+	def checkTime(self,username):
+		pass

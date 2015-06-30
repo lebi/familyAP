@@ -73,6 +73,8 @@ urlpatterns = patterns('',
     url(r'^admin/secureset/$','jobs.views.secureSet',name='secureset'),
 
     #----------------------------------------------guest---------------------------------------------------
+    url(r'^guest/resttime/$','jobs.views.countRest'),
+
     url(r'^guest/eventdate/$','jobs.views.eventDate',name='eventdate'),
 
     url(r'^guest/eventlist/$','jobs.views.eventList',name='eventlist'),

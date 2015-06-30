@@ -62,11 +62,10 @@ function ajaxSettingDetail(){
 		if(detail.status>0){
 			var user=detail.data;
 			var limit=user.limit;
-			$('.morph-button-modal-3 input[name=wendstoptime]').val(user.wendstoptime);
-			$('.morph-button-modal-3 input[name=wendstarttime]').val(user.wendstarttime);
-			$('.morph-button-modal-3 input[name=wdaystoptime]').val(user.wdaystoptime);
-			$('.morph-button-modal-3 input[name=wdaystarttime]').val(user.wdaystarttime);
-			$('.morph-button-modal-3 input[name=wendstoptime]').val(user.wendstoptime);
+			$('.morph-button-modal-3 select[name=wendmin]').val(user.wendstoptime);
+			$('.morph-button-modal-3 select[name=wendhour]').val(user.wendstarttime);
+			$('.morph-button-modal-3 select[name=wdaymin]').val(user.wdaystoptime);
+			$('.morph-button-modal-3 select[name=wdayhour]').val(user.wdaystarttime);
 			if(user.sfileauth!="")
 				$('.morph-button-modal-3 select[name=sfileauth]').val(user.sfileauth);
 			if(user.limit!="")
@@ -77,13 +76,12 @@ function ajaxSettingDetail(){
 	});
 }
 
-function settingUserDetail(dom) {	
+function settingUserDetail(dom) {
 	var username=$('.morph-button-modal-3 select[name=username]').val();		
-	var wendstoptime=$('.morph-button-modal-3 input[name=wendstoptime]').val();
-	var wendstarttime=$('.morph-button-modal-3 input[name=wendstarttime]').val();
-	var wdaystoptime=$('.morph-button-modal-3 input[name=wdaystoptime]').val();
-	var wdaystarttime=$('.morph-button-modal-3 input[name=wdaystarttime]').val();
-	var wendstoptime=$('.morph-button-modal-3 input[name=wendstoptime]').val();
+	var wendstoptime=$('.morph-button-modal-3 select[name=wendmin]').val();
+	var wendstarttime=$('.morph-button-modal-3 select[name=wendhour]').val();
+	var wdaystoptime=$('.morph-button-modal-3 select[name=wdaymin]').val();
+	var wdaystarttime=$('.morph-button-modal-3 select[name=wdayhour]').val();
 	var sfileauth=$('.morph-button-modal-3 select[name=sfileauth]').val();
 	var limit=$('.morph-button-modal-3 textarea').val();
 	if(limit=="以分号分隔")

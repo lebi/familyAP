@@ -163,3 +163,23 @@ function deleteEvent(dom) {
     }
   })
 }
+
+$(function () {
+  $.getJSON('resttime',function (result) {
+    if (result.status>0) {
+      var count=result.data.count;
+      if(count=='null'){
+        var html="无限制";
+      }
+      else{
+        var hour=parseInt(count/2);
+        var min=count%2;
+        var html="剩余"+hour+"小时";
+        if(min==1){
+          html+="30分钟";
+        }
+      }
+      $('.countdown').append(html);
+    };
+  })
+})
