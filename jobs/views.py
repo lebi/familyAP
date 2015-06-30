@@ -231,11 +231,13 @@ def videoWs(request):
 					wsmessage['username']=username
 					mac=user['mac']
 					wsmessage['mac']=mac
+					print wsmessage
 					for client in clients:
 						if client!=request.websocket:
 							client.send(json.dumps(wsmessage))
 							# client.send(wsmessage)
 				else:
+					print wsmessage
 					i=wsipList.index(wsmessage['target'])
 					clients[i].send(json.dumps(wsmessage))
 		finally:

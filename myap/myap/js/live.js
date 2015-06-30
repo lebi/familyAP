@@ -1,9 +1,13 @@
 $(function () {
-    var s = new WebSocket("ws://" + window.location.host + "/admin/videows");
+    if(window.location.href.indexOf('admin')>0)
+        var s = new WebSocket("ws://" + window.location.host + "/admin/videows");
+    else
+        var s = new WebSocket("ws://" + window.location.host + "/guest/videows");
     s.onopen = function () {
         console.log('WebSocket open');
         var createInfo={action:'new',target:'0.0.0.0'};
         sendInfo(createInfo);
+        console.log('send new');
     };
 
     s.onmessage = function(data){

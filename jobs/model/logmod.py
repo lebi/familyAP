@@ -26,9 +26,11 @@ class LogMod(object):
 			agent=request.META['HTTP_USER_AGENT']
 			agents=agent.split(' ')
 			if len(self.onlinedao.selectuser(['username='+username,'ip='+ip]))==0:
-				self.onlinedao.adduser(['username','mac','ip'],[username,agents[3],ip])
-				NAT=nat.NAT()
-				NAT.allowUser(ip)
+				self.onlinedao.adduser(['username','mac','ip'],[username,agents[4],ip])
+				print user
+				if int(user[0][3])>0:
+					NAT=nat.NAT()
+					NAT.allowUser(ip)
 			userjson={'username':username,'rank':user[0][3]}
 
 			mod=usermod.UserMod()

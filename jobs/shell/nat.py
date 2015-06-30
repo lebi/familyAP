@@ -18,12 +18,12 @@ class NAT:
 
 	def webBan(self,ip,web):
 		target='echo 123456 | sudo -S iptables -t nat -A PREROUTING -p tcp --dport 80 -d '+web+ \
-		' -j DNAT -s '+ip+' --to 192.168.10.1:8000 2>>errorlog'
+		' -j DNAT -s '+ip+' --to 192.168.10.1:80 2>>errorlog'
 		os.system(target)
 
 	def webAllow(self,ip,web):
 		target='echo 123456 | sudo -S iptables -t nat -D PREROUTING -p tcp --dport 80 -d '+web+ \
-		' -j DNAT -s '+ip+' --to 192.168.10.1:8000 2>>errorlog'
+		' -j DNAT -s '+ip+' --to 192.168.10.1:80 2>>errorlog'
 		os.system(target)
 #if __name__ == '__main__':
 	# nat=NAT()
